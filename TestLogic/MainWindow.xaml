@@ -8,17 +8,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
-        <local:PersonData/>
+        <local:MessegVieModel/>
     </Window.DataContext>
     <Window.Resources>
         
     </Window.Resources>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
             <Label>Customer Name: </Label>
-            <TextBox Text="{Binding Name}" Width="136"/>
-            <Label Content="{Binding Name}"/>
+        <TextBox Text="{Binding MessegeText, 
+                                Mode=OneWayToSource, 
+                                UpdateSourceTrigger=PropertyChanged}" 
+                 Width="136"/>
+            <Label Content="{Binding MessegeText}"/>
         <TextBox Text="0" Width="136"/>
-        <Button 
+        <Button Command="{Binding DisplayMessageCommand}"
                 Content="Start" > 
                 
         </Button>

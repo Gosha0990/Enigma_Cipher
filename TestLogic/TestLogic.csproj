@@ -70,8 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVVM\ViewModel\Base\BaseViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\PressButton.cs" />
-    <Compile Include="MVVM\ViewModel\Base\PressButtonViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\Command\MessageCommand.cs" />
+    <Compile Include="MVVM\ViewModel\MessegVieModel.cs" />
     <Compile Include="MVVM\ViewModel\PersonData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

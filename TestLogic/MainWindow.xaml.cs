@@ -24,6 +24,7 @@ namespace TestLogic
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MessegVieModel();
         }
     }
 }

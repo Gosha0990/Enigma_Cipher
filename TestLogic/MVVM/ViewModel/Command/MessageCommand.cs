@@ -5,19 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace TestLogic.MVVM.ViewModel.Base
+namespace TestLogic.MVVM.ViewModel.Command
 {
-    internal class PressButtonViewModel : ICommand
+    public class MessageCommand : ICommand
     {
-        PressButton _buttonViewCommand;
-
-        public PressButtonViewModel(PressButton viewModel)
-        {
-            _buttonViewCommand = viewModel;
-        }
-
         public event EventHandler CanExecuteChanged;
-
+        private Action _execute;
+        public MessageCommand(Action execute)
+        {
+            _execute = execute;
+        }
         public bool CanExecute(object parameter)
         {
             return true;
@@ -25,7 +22,7 @@ namespace TestLogic.MVVM.ViewModel.Base
 
         public void Execute(object parameter)
         {
-            _buttonViewCommand.OnExecute();
+            _execute.Invoke();
         }
     }
 }
