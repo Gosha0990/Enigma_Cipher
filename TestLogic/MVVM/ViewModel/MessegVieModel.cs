@@ -10,7 +10,8 @@ namespace TestLogic.MVVM.ViewModel
 {
     class MessegVieModel
     {
-        public string MessegeText { get; set; }
+        public string MessegeTextOne { get; set; }
+        public string MessegeTextTwo { get; set; }
         public MessageCommand DisplayMessageCommand { get; private set; }
         public MessegVieModel()
         {
@@ -19,7 +20,8 @@ namespace TestLogic.MVVM.ViewModel
 
         public void DisplayMesseg()
         {
-            MessageBox.Show(MessegeText);
+            var res = Convert.ToInt32(MessegeTextOne) + Convert.ToInt32(MessegeTextTwo);
+            MessageBox.Show(res.ToString());
         }
     }
 }

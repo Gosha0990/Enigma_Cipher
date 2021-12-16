@@ -15,12 +15,15 @@
     </Window.Resources>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
             <Label>Customer Name: </Label>
-        <TextBox Text="{Binding MessegeText, 
+        <TextBox Text="{Binding MessegeTextOne, 
                                 Mode=OneWayToSource, 
                                 UpdateSourceTrigger=PropertyChanged}" 
                  Width="136"/>
-            <Label Content="{Binding MessegeText}"/>
-        <TextBox Text="0" Width="136"/>
+            <Label Content="{Binding MessegeTextOne}"/>
+        <TextBox Text="{Binding MessegeTextTwo,
+                                Mode=OneWayToSource,
+                                UpdateSourceTrigger=PropertyChanged}" 
+                 Width="136"/>
         <Button Command="{Binding DisplayMessageCommand}"
                 Content="Start" > 
                 
