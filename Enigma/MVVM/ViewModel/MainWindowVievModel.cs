@@ -80,8 +80,8 @@ namespace Enigma.MVVM.ViewModel
         public MainWindowVievModel()
         {
             SaveTextCommad = new LambdaCommand(OnSaveTextCommadExecuter, CanSaveTextCommadEcecute);
-            StartCommand = new LambdaCommand(OnStartCommand, CanStartCommand);
-            TextMessegCommand = new LambdaCommand(OnTextMassegCommand);
+           
+           
         }
     }
 }
