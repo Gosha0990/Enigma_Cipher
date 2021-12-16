@@ -13,7 +13,7 @@ namespace TestLogic.MVVM.ViewModel
     class PersonData : BaseViewModel
     {
         private string _name;
-        private Button _pressButton;
+
         public string Name
         {
             get => _name;
@@ -22,11 +22,7 @@ namespace TestLogic.MVVM.ViewModel
                 OnPropertyChenged();
             }
         }
-        public Button PressButton
-        {
-            get => _pressButton;
-            set => OnPropertyChenged();
-        }
+
         public PersonData()
         {
             Task.Run(() =>
@@ -38,10 +34,7 @@ namespace TestLogic.MVVM.ViewModel
                     Debug.WriteLine($"Name : {Name}");
                     
                     Thread.Sleep(500);
-                    if (PressButton)
-                    {
-                        Debug.WriteLine("Press");
-                    }
+                    
                 }
             });
         }
