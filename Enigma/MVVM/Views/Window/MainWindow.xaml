@@ -4,6 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Enigma.MVVM.ViewModel"
+        xmlns:local="clr-namespace:Enigma.Infrastructure.Commands"
         mc:Ignorable = "d"
         WindowStyle = "None" 
         ResizeMode="NoResize"
@@ -11,7 +12,7 @@
         AllowsTransparency="True"
         Height="560" Width="450">
     <Window.DataContext>
-        <vm:MainWindowVievModel/>
+        <vm:MainWindowViewModel/>
     </Window.DataContext>
             <Border Background="#939597">
         <Grid>
@@ -45,23 +46,32 @@
                                 BorderThickness="0"
                                 Foreground="Gray"
                                 FontWeight="Bold" 
-                                Margin="0,0,0,3"
-                                Click="ButtonMinmaze_Click"/>
+                                Margin="0,0,0,3">
+                            <Button.Command>
+                                <local:MinmazeApplicationCommand/>
+                            </Button.Command>
+                        </Button>
                         <Button Width="20" Height="20"
                                 Content="☐"
                                 Background="Transparent"
                                 BorderThickness ="0"
                                 Foreground="Gray"
-                                FontWeight="Bold"
-                                Click="ButtonMaxmaze_Click"/>
+                                FontWeight="Bold">
+                            <Button.Command>
+                                <local:MaxmazeApplicationCommand/>
+                            </Button.Command>
+                        </Button>
 
                         <Button Width="20" Height="20"
                                 Content="✕"
                                 Background="Transparent"
                                 BorderThickness ="0"
                                 Foreground="Gray"
-                                FontWeight="Bold"
-                                Click="CloseButton_Click"/>
+                                FontWeight="Bold">
+                            <Button.Command>
+                                <local:CloseApplicationComand/>
+                            </Button.Command>
+                        </Button>
 
 
                     </StackPanel>
@@ -85,8 +95,7 @@
                                 Foreground="White"
                                 FontWeight="Bold" 
                                 Margin="0,14,0,16"
-                                Command="{Binding SaveTextCommad}"
-                                x:Name="SaveKey" Click="SaveKey_Click"/>
+                                Command="{Binding SaveTextCommad}"/>
                     </StackPanel>
                 </Grid>
             </Border><!--Grid.Row = 1-->
@@ -102,15 +111,11 @@
                         TextWrapping="Wrap"
                         AcceptsReturn="True"
                         VerticalScrollBarVisibility="Visible"
-                        Text="{Binding TextKey}"
-                        
-                        >
-
+                        Text="{Binding TextKey}">
                     </TextBox>
                 </Grid>
             </Border><!--Grid.Row = 2-->
             
-
             <Border Background="Transparent"
                     Grid.Row="3">
                 <Grid>
@@ -151,9 +156,11 @@
                                 FontWeight="Bold" 
                                 Margin="0,14,0,17"
                                 x:Name="ButtomStart" 
-                                Click="ButtomStart_Click"
-                                Command="{Binding StartCommand}"
-                                />
+                                >
+                            <Button.Command>
+                                <local:Start/>
+                            </Button.Command>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Border><!--KEY Start -->
