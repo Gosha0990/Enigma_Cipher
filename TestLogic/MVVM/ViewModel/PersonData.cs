@@ -31,7 +31,7 @@ namespace TestLogic.MVVM.ViewModel
                 {
                     Random r = new Random();
                     Name = r.Next(1, 1000).ToString();
-                    Debug.WriteLine($"Name : {Name}");
+                    Debug.WriteLine($"Name_Name : {Name}");
                     
                     Thread.Sleep(500);
                     
