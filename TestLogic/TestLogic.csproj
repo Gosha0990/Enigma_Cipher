@@ -70,9 +70,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVVM\ViewModel\Base\BaseViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\Command\Command.cs" />
-    <Compile Include="MVVM\ViewModel\Command\LambdaCommand.cs" />
-    <Compile Include="MVVM\ViewModel\Command\MessageCommand.cs" />
+    <Compile Include="MVVM\ViewModel\Commands\Close.cs" />
+    <Compile Include="MVVM\ViewModel\Commands\Command.cs" />
+    <Compile Include="MVVM\ViewModel\Commands\LambdaCommand.cs" />
+    <Compile Include="MVVM\ViewModel\Commands\MessageCommand.cs" />
     <Compile Include="MVVM\ViewModel\MessegVieModel.cs" />
     <Compile Include="MVVM\ViewModel\PersonData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

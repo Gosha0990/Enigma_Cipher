@@ -8,55 +8,23 @@ using System.Windows;
 
 namespace Enigma.MVVM.ViewModel
 {
-    class MainWindowVievModel : MainViewModel
+    class MainWindowViewModel : MainViewModel
     {
 
-        private string _TextMasseg = "Hhhhhhhhh";
-
+        private string _TextMasseg ;
+        private string _TextKey = "New Key";
+        
         public string TextMasseg
         {
             get => _TextMasseg;
             set => Set(ref _TextMasseg, value);
-        }
-
-        public ICommand TextMessegCommand { get; }
-
-        public void OnTextMassegCommand(object p)
-        {
-
-        }
-
-        private string _Start = "Start";
-
-        public string Start
-        {
-            get => _Start;
-            set => Set(ref _Start, value);
-        }
-
-        public ICommand StartCommand { get; }
-
-        private void OnStartCommand(object p, MouseButtonEventArgs e)
-        {
-            var res = new EncryptionMain();
-            res.Encrypt(_TextMasseg, _TextKey);
-            
-            if (e.LeftButton == MouseButtonState.Pressed)
-                _TextMasseg = res.ToString();
-
-        }
-        private bool CanStartCommand(object p)
-        {
-            return true;
-        }
-
-        private string _TextKey = "New Key";
-
+        }        
         public string TextKey
         {
             get => _TextKey;
             set => Set(ref _TextKey, value);
         }
+
         #region SaveText
         public ICommand SaveTextCommad { get; }
 
@@ -77,7 +45,7 @@ namespace Enigma.MVVM.ViewModel
             return true;
         }
         #endregion
-        public MainWindowVievModel()
+        public MainWindowViewModel()
         {
             SaveTextCommad = new LambdaCommand(OnSaveTextCommadExecuter, CanSaveTextCommadEcecute);
            

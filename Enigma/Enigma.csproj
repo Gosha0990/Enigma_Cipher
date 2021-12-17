@@ -64,10 +64,13 @@
     </Compile>
     <Compile Include="Core\ObservablaObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Infrastructure\Commands\CloseApplicationComand.cs" />
     <Compile Include="Infrastructure\Commands\Command.cs" />
     <Compile Include="Infrastructure\Commands\LambdaCommand.cs" />
+    <Compile Include="Infrastructure\Commands\MaxmazeApplicationCommand.cs" />
+    <Compile Include="Infrastructure\Commands\MinmazeApplicationCommand.cs" />
     <Compile Include="MVVM\Model\Encryption\EncryptionMain.cs" />
-    <Compile Include="MVVM\ViewModel\MainWindowVievModel.cs" />
+    <Compile Include="MVVM\ViewModel\MainWindowViewModel.cs" />
     <Compile Include="MVVM\Views\Window\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

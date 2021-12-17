@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestLogic.MVVM.ViewModel.Command
+namespace TestLogic.MVVM.ViewModel.Commands
 {
     internal class LambdaCommand : Command
     {

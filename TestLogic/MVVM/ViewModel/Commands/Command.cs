@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace TestLogic.MVVM.ViewModel.Command
+namespace TestLogic.MVVM.ViewModel.Commands
 {
     internal abstract class Command : ICommand
     {
