@@ -156,10 +156,8 @@
                                 FontWeight="Bold" 
                                 Margin="0,14,0,17"
                                 x:Name="ButtomStart" 
+                                Command="{Binding DisplayMessageCommand}"
                                 >
-                            <Button.Command>
-                                <local:Star/>
-                            </Button.Command>
                         </Button>
                     </StackPanel>
                 </Grid>
