@@ -28,6 +28,17 @@ namespace Enigma.MVVM.ViewModel
         {
            return TextMasseg += TextKey;
         }
+        public ICommand DisplayMessageCommand { get; private set; }
+        public void OnDisplayMessageCommand(object p)
+        {
+            var res = TextMasseg + TextKey;
+            TextKey = res;
+        }
+
+        public bool CanDisplayMessageCommand(object p)
+        {
+            return true;
+        }
         #region SaveText
         public ICommand SaveTextCommad { get; }
 
@@ -51,8 +62,8 @@ namespace Enigma.MVVM.ViewModel
         public MainWindowViewModel()
         {
             SaveTextCommad = new LambdaCommand(OnSaveTextCommadExecuter, CanSaveTextCommadEcecute);
-           
-           
+            DisplayMessageCommand = new LambdaCommand(OnDisplayMessageCommand, CanDisplayMessageCommand);
+
         }
     }
 }

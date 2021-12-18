@@ -69,7 +69,6 @@
     <Compile Include="Infrastructure\Commands\LambdaCommand.cs" />
     <Compile Include="Infrastructure\Commands\MaxmazeApplicationCommand.cs" />
     <Compile Include="Infrastructure\Commands\MinmazeApplicationCommand.cs" />
-    <Compile Include="Infrastructure\Commands\Star.cs" />
     <Compile Include="MVVM\Model\Encryption\EncryptionMain.cs" />
     <Compile Include="MVVM\ViewModel\MainWindowViewModel.cs" />
     <Compile Include="MVVM\Views\Window\MainWindow.xaml.cs">
