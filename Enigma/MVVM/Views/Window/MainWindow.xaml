@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Enigma.MVVM.ViewModel"
         xmlns:local="clr-namespace:Enigma.Infrastructure.Commands"
+        xmlns:font="http://schemas.fontawesome.com/icons/"
         mc:Ignorable = "d"
         WindowStyle = "None" 
         ResizeMode="NoResize"
@@ -88,14 +89,12 @@
                        FontSize="20"/>
                     <StackPanel HorizontalAlignment="Center" 
                             Orientation="Horizontal">
-                        <Button Width="39" Height="20"
-                                Content="Save"
-                                Background="Transparent"
-                                BorderThickness="2"
-                                Foreground="White"
-                                FontWeight="Bold" 
+                        <Button Background="Transparent"
+                                BorderThickness="0"
                                 Margin="0,14,0,16"
-                                Command="{Binding SaveTextCommad}"/>
+                                Command="{Binding SaveTextCommad}">
+                            <font:ImageAwesome Icon="Solid_Save"/>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Border><!--Grid.Row = 1-->
@@ -115,7 +114,6 @@
                     </TextBox>
                 </Grid>
             </Border><!--Grid.Row = 2-->
-            
             <Border Background="Transparent"
                     Grid.Row="3">
                 <Grid>
@@ -123,9 +121,13 @@
                        Foreground="White"
                        FontWeight="UltraBold"
                        FontSize="20"/>
-                    <StackPanel HorizontalAlignment="Center" 
-                            Orientation="Horizontal">
-                    </StackPanel>
+                    <Button Width="20"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Margin="0,14,0,16"
+                            Command="{Binding SaveTextCommad}">
+                        <font:ImageAwesome Icon="Solid_Save" Cursor=""/>
+                    </Button>
                 </Grid>
             </Border>
             <Border Background="#939597"
@@ -146,34 +148,38 @@
             <Border Background="Transparent"
                     Grid.Row="5">
                 <Grid>
+                    <Label Content="Encrytion messeg"
+                       Foreground="White"
+                       FontWeight="UltraBold"
+                       FontSize="20"/>
                     <StackPanel HorizontalAlignment="Center" 
                             Orientation="Horizontal">
-                        <Button Width="106" Height="20"
-                                Content="Start"
+                        <Button Width="25" Height="20"
+                                
                                 Background="Transparent"
-                                BorderThickness="2"
+                                BorderThickness="0"
                                 Foreground="White"
                                 FontWeight="Bold" 
                                 Margin="0,14,0,17"
                                 x:Name="ButtomStart" 
-                                Command="{Binding DisplayMessageCommand}"
-                                >
+                                Command="{Binding DisplayMessageCommand}">
+                            <font:ImageAwesome Icon="Solid_Play" Cursor=""/>
                         </Button>
                     </StackPanel>
                 </Grid>
             </Border><!--KEY Start -->
             <Border Background="#939597"
                     Grid.Row="6">
+                
                 <Grid>
-
+                    
                     <TextBox 
                         Height="Auto" Width="Auto"
                         Name="MultiLine"
                         TextWrapping="Wrap"
                         AcceptsReturn="True"
                         VerticalScrollBarVisibility="Visible"
-                        >
-
+                        Text="{Binding TextResult}">
                     </TextBox>
                 </Grid>
             </Border><!--Res Text -->
