@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using TestLogic.MVVM.ViewModel.Base;
 
+
 namespace TestLogic.MVVM.ViewModel
 {
-    class PersonData : BaseViewModel
+    internal class PersonData : BaseViewModel
     {
         private string _name;
 
@@ -25,18 +26,27 @@ namespace TestLogic.MVVM.ViewModel
 
         public PersonData()
         {
-            Task.Run(() =>
-            {
-                while (true)
-                {
-                    Random r = new Random();
-                    Name = r.Next(1, 1000).ToString();
-                    Debug.WriteLine($"Name_Name : {Name}");
-                    
-                    Thread.Sleep(500);
-                    
-                }
-            });
+            
+        }
+        public void Test()
+        {
+            var t = "Test";
+            Name = t;
+        }
+    }
+    internal class Star : Commands
+    {
+        public override bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public override void Execute(object parameter) => Run();
+
+
+        public void Run()
+        {
+            
         }
     }
 }

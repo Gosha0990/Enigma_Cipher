@@ -4,13 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using TestLogic.MVVM.ViewModel.Base;
 using TestLogic.MVVM.ViewModel.Command;
 
 namespace TestLogic.MVVM.ViewModel
 {
-    class MessegVieModel
+    internal class MessegVieModel : BaseViewModel
     {
-        public string MessegeTextOne { get; set; }
+        private string _messegeTextOne;
+        public string MessegeTextOne 
+        {
+            get => _messegeTextOne;
+            set 
+            {
+                _messegeTextOne = value;
+                OnPropertyChenged();
+            }
+        }
         public string MessegeTextTwo { get; set; }
         public MessageCommand DisplayMessageCommand { get; private set; }
         public MessegVieModel()
@@ -21,7 +32,13 @@ namespace TestLogic.MVVM.ViewModel
         public void DisplayMesseg()
         {
             var res = Convert.ToInt32(MessegeTextOne) + Convert.ToInt32(MessegeTextTwo);
-            MessageBox.Show(res.ToString());
+            MessegeTextOne = res.ToString();
+            //SetMesseg(res.ToString());
+            
+        }
+        public void SetMesseg(string text)
+        {
+            MessegeTextOne = text;
         }
     }
 }
