@@ -13,7 +13,7 @@ namespace Enigma.MVVM.ViewModel
 
         private string _TextMasseg ="h";
         private string _TextKey = "New Key";
-        
+        private string _TextResult = "Res";
         public string TextMasseg
         {
             get => _TextMasseg;
@@ -24,15 +24,18 @@ namespace Enigma.MVVM.ViewModel
             get => _TextKey;
             set => Set(ref _TextKey, value);
         }
-        public string Star()
+
+        public string TextResult
         {
-           return TextMasseg += TextKey;
+            get => _TextResult;
+            set => Set(ref _TextResult, value);
         }
         public ICommand DisplayMessageCommand { get; private set; }
         public void OnDisplayMessageCommand(object p)
         {
-            var res = TextMasseg + TextKey;
-            TextKey = res;
+            var encryption = new EncryptionMain();
+            var res = encryption.Encrypt(_TextMasseg, _TextKey);
+            TextResult = res;
         }
 
         public bool CanDisplayMessageCommand(object p)
