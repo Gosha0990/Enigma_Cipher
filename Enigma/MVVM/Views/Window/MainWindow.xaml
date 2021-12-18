@@ -158,7 +158,7 @@
                                 x:Name="ButtomStart" 
                                 >
                             <Button.Command>
-                                <local:Start/>
+                                <local:Star/>
                             </Button.Command>
                         </Button>
                     </StackPanel>

@@ -11,7 +11,7 @@ namespace Enigma.MVVM.ViewModel
     class MainWindowViewModel : MainViewModel
     {
 
-        private string _TextMasseg ;
+        private string _TextMasseg ="h";
         private string _TextKey = "New Key";
         
         public string TextMasseg
@@ -24,7 +24,10 @@ namespace Enigma.MVVM.ViewModel
             get => _TextKey;
             set => Set(ref _TextKey, value);
         }
-
+        public string Star()
+        {
+           return TextMasseg += TextKey;
+        }
         #region SaveText
         public ICommand SaveTextCommad { get; }
 

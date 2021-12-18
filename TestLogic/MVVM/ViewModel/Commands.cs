@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace TestLogic.MVVM.ViewModel.Commands
+namespace TestLogic.MVVM.ViewModel
 {
-    internal abstract class Command : ICommand
+    internal abstract class Commands : ICommand
     {
         public event EventHandler CanExecuteChanged
         {
@@ -15,6 +19,6 @@ namespace TestLogic.MVVM.ViewModel.Commands
 
 
         public abstract void Execute(object parameter);
-        
+
     }
 }
