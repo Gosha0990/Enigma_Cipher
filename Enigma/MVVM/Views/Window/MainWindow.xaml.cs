@@ -21,6 +21,8 @@ namespace Enigma
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
+
+
     }
 
 }

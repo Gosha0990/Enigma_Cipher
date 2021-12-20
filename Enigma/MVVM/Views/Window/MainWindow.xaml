@@ -15,16 +15,16 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-            <Border Background="#939597">
+    <Border Background="#939597">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="65"/>
                 <RowDefinition Height="100"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="65"/>
                 <RowDefinition Height="125"/>
-                <RowDefinition Height="51"/>
-                <RowDefinition Height="151"/>
+                <RowDefinition Height="68"/>
+                <RowDefinition Height="131"/>
             </Grid.RowDefinitions>
 
 
@@ -87,18 +87,25 @@
                        Foreground="White"
                        FontWeight="UltraBold"
                        FontSize="20"/>
-                    <StackPanel HorizontalAlignment="Center" 
+                    <StackPanel HorizontalAlignment="Right" 
                             Orientation="Horizontal">
                         <Button Background="Transparent"
                                 BorderThickness="0"
-                                Margin="0,14,0,16"
-                                Command="{Binding SaveTextCommad}">
-                            <font:ImageAwesome Icon="Solid_Save"/>
+                                Margin="0,-10,0,16"
+                                Command="{Binding SaveTextCommad}"
+                                Width="25" Height="25">
+                            <font:ImageAwesome Icon="Solid_Save" 
+                                               Foreground="#FF2D302D"/>
                         </Button>
+                        <Label FontSize="15"
+                               Content="Save"
+                               Foreground="White"
+                               Margin="-35,25,12,0"/>
                     </StackPanel>
                 </Grid>
-            </Border><!--Grid.Row = 1-->
-            
+            </Border>
+            <!--Grid.Row = 1-->
+
 
             <Border Background="#939597"
                     Grid.Row="2">
@@ -113,7 +120,8 @@
                         Text="{Binding TextKey}">
                     </TextBox>
                 </Grid>
-            </Border><!--Grid.Row = 2-->
+            </Border>
+            <!--Grid.Row = 2-->
             <Border Background="Transparent"
                     Grid.Row="3">
                 <Grid>
@@ -121,13 +129,21 @@
                        Foreground="White"
                        FontWeight="UltraBold"
                        FontSize="20"/>
-                    <Button Width="20"
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                        <Button Width="25" Height="25"
                             Background="Transparent"
                             BorderThickness="0"
-                            Margin="0,14,0,16"
+                            Margin="0,-10,0,16"
                             Command="{Binding SaveTextCommad}">
-                        <font:ImageAwesome Icon="Solid_Save" Cursor=""/>
-                    </Button>
+                            <font:ImageAwesome Icon="Solid_Save" Cursor=""
+                                               Foreground="#FF2D302D"/>
+                        </Button>
+                        <Label FontSize="15"
+                               Content="Save"
+                               Foreground="White"
+                               Margin="-35,25,12,0"/>
+                    </StackPanel>
                 </Grid>
             </Border>
             <Border Background="#939597"
@@ -148,31 +164,57 @@
             <Border Background="Transparent"
                     Grid.Row="5">
                 <Grid>
-                    <Label Content="Encrytion messeg"
+                    <Label 
                        Foreground="White"
                        FontWeight="UltraBold"
-                       FontSize="20"/>
-                    <StackPanel HorizontalAlignment="Center" 
+                       FontSize="20"
+                        Height="40" Margin="40,3,0,30">
+                        <font:ImageAwesome Icon="Solid_MailBulk" Cursor="No"
+                                           Foreground="#FF2D302D"/>
+                    </Label>
+                    <StackPanel HorizontalAlignment="Right" 
                             Orientation="Horizontal">
-                        <Button Width="25" Height="20"
-                                
+                        <Label 
+                           Foreground="White"
+                           FontSize="15"
+                           Margin="0,30,240,0"
+                            Content="Encryption"/>
+                        <Label Content="Start"                           
+                           Foreground="White"
+                           FontSize="15"
+                           Margin="10,30,-35,0" Width="44"/>
+                        <Label Content="Save"                           
+                           Foreground="White"
+                           FontSize="15"
+                           Margin="-6,30,-150,10" Width="68"/>
+                        <Button Width="25" Height="25"
                                 Background="Transparent"
                                 BorderThickness="0"
                                 Foreground="White"
                                 FontWeight="Bold" 
-                                Margin="0,14,0,17"
+                                Margin="0,-10,20,17"
                                 x:Name="ButtomStart" 
                                 Command="{Binding DisplayMessageCommand}">
-                            <font:ImageAwesome Icon="Solid_Play" Cursor=""/>
+                            <font:ImageAwesome Icon="Solid_Play" Cursor=""
+                                               Foreground="#FF2D302D"/>
+                        </Button>
+                        <Button     Width="25" Height="25"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Margin="0,-10,20,17"
+                                Command="{Binding SaveTextCommad}">
+                            <font:ImageAwesome Icon="Solid_Save"
+                                               Foreground="#FF2D302D"/>
                         </Button>
                     </StackPanel>
                 </Grid>
-            </Border><!--KEY Start -->
+            </Border>
+            <!--KEY Start -->
             <Border Background="#939597"
                     Grid.Row="6">
-                
+
                 <Grid>
-                    
+
                     <TextBox 
                         Height="Auto" Width="Auto"
                         Name="MultiLine"
@@ -182,8 +224,9 @@
                         Text="{Binding TextResult}">
                     </TextBox>
                 </Grid>
-            </Border><!--Res Text -->
-            
+            </Border>
+            <!--Res Text -->
+
         </Grid>
 
     </Border>
