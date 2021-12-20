@@ -83,7 +83,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\Model\MainModel.cs" />
     <Compile Include="MVVM\ViewModel\Base\MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
