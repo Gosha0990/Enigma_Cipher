@@ -11,7 +11,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
-        Height="560" Width="450">
+        Height="600" Width="450">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -97,29 +97,33 @@
                             <font:ImageAwesome Icon="Solid_Save" 
                                                Foreground="#FF2D302D"/>
                         </Button>
-                        <Label FontSize="15"
-                               Content="Save"
-                               Foreground="White"
-                               Margin="-35,25,12,0"/>
+                        <Label                             
+                            FontSize="15"
+                            Content="Save"
+                            Foreground="White"
+                            Margin="-35,25,12,0"/>
                     </StackPanel>
                 </Grid>
             </Border>
             <!--Grid.Row = 1-->
 
-
-            <Border Background="#939597"
-                    Grid.Row="2">
-                <Grid>
-
-                    <TextBox 
-                        Height="Auto" Width="Auto"
-                        Name="TextKey"
-                        TextWrapping="Wrap"
-                        AcceptsReturn="True"
-                        VerticalScrollBarVisibility="Visible"
-                        Text="{Binding TextKey}">
-                    </TextBox>
-                </Grid>
+            <Border
+                Background="White"
+                Grid.Row="2"
+                BorderThickness="5"
+                CornerRadius="15">
+                <TextBox
+                    Padding="12,0,0,0"
+                    FontSize="15"
+                    FontFamily="Arial"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    Height="Auto" Width="Auto"
+                    TextWrapping="Wrap"
+                    AcceptsReturn="True"
+                    VerticalScrollBarVisibility="Visible"
+                    Text="{Binding TextKey}">
+                </TextBox>
             </Border>
             <!--Grid.Row = 2-->
             <Border Background="Transparent"
@@ -146,20 +150,23 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <Border Background="#939597"
-                    Grid.Row="4">
-                <Grid>
-
-                    <TextBox 
-                        Height="Auto" Width="Auto"
-                        Name="bMultiLine"
-                        TextWrapping="Wrap"
-                        AcceptsReturn="True"
-                        VerticalScrollBarVisibility="Visible"
-                        Text="{Binding TextMasseg}"
+            <Border Background="White"
+                    Grid.Row="4"
+                    BorderThickness="5"
+                    CornerRadius="15">
+                <TextBox
+                    Padding="12,0,0,0"
+                    FontSize="15"
+                    FontFamily="Arial"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Height="Auto" Width="Auto"
+                    TextWrapping="Wrap"
+                    AcceptsReturn="True"
+                    VerticalScrollBarVisibility="Visible"
+                    Text="{Binding TextMasseg}"
                         >
-                    </TextBox>
-                </Grid>
+                </TextBox>
             </Border>
             <Border Background="Transparent"
                     Grid.Row="5">
@@ -168,17 +175,17 @@
                        Foreground="White"
                        FontWeight="UltraBold"
                        FontSize="20"
-                        Height="40" Margin="40,3,0,30">
+                       Height="40" Margin="40,3,0,30">
                         <font:ImageAwesome Icon="Solid_MailBulk" Cursor="No"
                                            Foreground="#FF2D302D"/>
                     </Label>
+                    <Label 
+                        Foreground="White"
+                        FontSize="15"
+                        Margin="25,30,240,0"
+                        Content="Encryption"/>
                     <StackPanel HorizontalAlignment="Right" 
                             Orientation="Horizontal">
-                        <Label 
-                           Foreground="White"
-                           FontSize="15"
-                           Margin="0,30,240,0"
-                            Content="Encryption"/>
                         <Label Content="Start"                           
                            Foreground="White"
                            FontSize="15"
@@ -210,14 +217,21 @@
                 </Grid>
             </Border>
             <!--KEY Start -->
-            <Border Background="#939597"
-                    Grid.Row="6">
+            <Border Background="White"
+                    Grid.Row="6"
+                    BorderThickness="5"
+                    CornerRadius="15"
+                    >
 
                 <Grid>
 
-                    <TextBox 
+                    <TextBox
+                        Padding="12,0,0,0"
+                        FontSize="15"
+                        FontFamily="Arial"
+                        Background="Transparent"
+                        BorderThickness="0"
                         Height="Auto" Width="Auto"
-                        Name="MultiLine"
                         TextWrapping="Wrap"
                         AcceptsReturn="True"
                         VerticalScrollBarVisibility="Visible"
