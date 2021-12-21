@@ -5,25 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"       
         xmlns:local="clr-namespace:TestLogic.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="660.436">
     <Window.DataContext>
         <local:MessegVieModel/>
     </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="155"/>
+            <RowDefinition Height="155"/>
+        </Grid.RowDefinitions>
 
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-            <Label>Customer Name: </Label>
-        <TextBox Text="{Binding MessegeTextOne}"                                
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <Label>Customer Name:</Label>
+            <TextBox Text="{Binding MessegeTextOne}"                                
                  Width="136"/>
             <Label />
-        <TextBox Text="{Binding MessegeTextTwo}"
+            <TextBox Text="{Binding MessegeTextTwo}"
                  Width="136" />
-        <Button Command="{Binding DisplayMessageCommand}"
-                Content="Start" > 
-                
-        </Button>
-        <Button Content="Close">
-            
-        </Button>
-    </StackPanel>
-    
+            <Button Command="{Binding DisplayMessageCommand}"
+                Content="Start" >
+
+            </Button>
+            <Button Content="Close">
+
+            </Button>
+        </StackPanel>
+        <Border Grid.Row="1"
+                CornerRadius="10"
+                BorderBrush="#FFABADB3"
+                BorderThickness="5"
+                >
+            <TextBox BorderThickness="0"
+                     x:Name="te"
+                     Text="555"
+                     Width="556">
+            </TextBox>
+        </Border>
+    </Grid>
 </Window>
