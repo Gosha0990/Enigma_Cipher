@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,10 +34,22 @@ namespace TestLogic.MVVM.ViewModel
 
         public void DisplayMesseg()
         {
-            var res = Convert.ToInt32(MessegeTextOne) + Convert.ToInt32(MessegeTextTwo);
-            MessegeTextOne = res.ToString();
+            //var res = Convert.ToInt32(MessegeTextOne) + Convert.ToInt32(MessegeTextTwo);
+            //MessegeTextOne = res.ToString();
             //SetMesseg(res.ToString());
+            var adres = @"C:\Users\Gosha\Documents\t.txt";
+            var openText = new OpenFileDialog();
             
+            if(openText.ShowDialog()==true)
+            {
+                var filename = openText.FileName;
+                var filetext = File.ReadAllText(filename);
+                var res = filetext;
+                MessegeTextOne = res;
+                Debug.WriteLine(MessegeTextOne);
+            }
+
+
         }
         public void SetMesseg(string text)
         {
