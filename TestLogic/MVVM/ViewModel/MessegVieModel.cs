@@ -37,7 +37,7 @@ namespace TestLogic.MVVM.ViewModel
             //var res = Convert.ToInt32(MessegeTextOne) + Convert.ToInt32(MessegeTextTwo);
             //MessegeTextOne = res.ToString();
             //SetMesseg(res.ToString());
-            var adres = @"C:\Users\Gosha\Documents\t.txt";
+            
             var openText = new OpenFileDialog();
             
             if(openText.ShowDialog()==true)

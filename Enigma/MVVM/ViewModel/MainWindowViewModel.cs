@@ -5,14 +5,14 @@ using System.IO;
 using System.Windows.Controls;
 using Enigma.MVVM.Model.Encryption;
 using System.Windows;
+using System.Diagnostics;
 
 namespace Enigma.MVVM.ViewModel
 {
     class MainWindowViewModel : MainViewModel
     {
-
-        private string _TextMessag ="World!";
         private string _TextKey = "New Key";
+        private string _TextMessag ="World!";
         private string _TextResult;
         public string TextMasseg
         {
@@ -30,21 +30,44 @@ namespace Enigma.MVVM.ViewModel
             get => _TextResult;
             set => Set(ref _TextResult, value);
         }
-        public ICommand OpenTextCommand { get; private set; }
+        public ICommand OpanTextKeyCommand { get; private set; }
 
-        private void OnOpenTextCommadExecuter(object p)
+        private void OnOpanTextKeyCommadExecuter(object p)
         {
-            TextBox textBox = new TextBox();
-            textBox.Text = _TextKey;
+            var openFileDialog = new OpenFileDialog()
+            {
+                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
+            };            
+            if (openFileDialog.ShowDialog() == true)
+            {
+                var fileName = openFileDialog.FileName;
+                var fileText = File.ReadAllText(fileName);
+                var retunText = fileText;
+                TextKey = retunText;
+                Debug.WriteLine(TextKey);
+            }
+        }
+        public bool CanOpanTextKeyCommand(object p)
+        {
+            return true;
+        }
+        public ICommand OpanTextMassegCommand { get; private set; }
+
+        private void OnOpanTextMassegCommand(object p)
+        {
             var openFileDialog = new OpenFileDialog()
             {
                 Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
             };
-            var text = openFileDialog.ReadOnlyChecked.ToString();
             if (openFileDialog.ShowDialog() == true)
-                _TextKey = text;
+            {
+                var fileName = openFileDialog.FileName;
+                var fileText = File.ReadAllText(fileName);
+                var retunText = fileText;
+                TextMasseg = retunText;                
+            }
         }
-        public bool CanOpenTextCommand(object p)
+        private bool CanOpanTextMassegCommand(object p)
         {
             return true;
         }
@@ -84,7 +107,8 @@ namespace Enigma.MVVM.ViewModel
         {
             SaveTextCommad = new LambdaCommand(OnSaveTextCommadExecuter, CanSaveTextCommadEcecute);
             EncryptMessageCommand = new LambdaCommand(OnDisplayMessageCommand, CanDisplayMessageCommand);
-            OpenTextCommand = new LambdaCommand(OnOpenTextCommadExecuter, CanOpenTextCommand);
+            OpanTextKeyCommand = new LambdaCommand(OnOpanTextKeyCommadExecuter, CanOpanTextKeyCommand);
+            OpanTextMassegCommand = new LambdaCommand(OnOpanTextMassegCommand, CanOpanTextMassegCommand);
         }
     }
 }
