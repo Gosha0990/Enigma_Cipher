@@ -11,13 +11,13 @@ namespace Enigma.MVVM.ViewModel
     class MainWindowViewModel : MainViewModel
     {
 
-        private string _TextMasseg ="h";
+        private string _TextMessag ="World!";
         private string _TextKey = "New Key";
-        private string _TextResult = "Res";
+        private string _TextResult;
         public string TextMasseg
         {
-            get => _TextMasseg;
-            set => Set(ref _TextMasseg, value);
+            get => _TextMessag;
+            set => Set(ref _TextMessag, value);
         }        
         public string TextKey
         {
@@ -30,11 +30,29 @@ namespace Enigma.MVVM.ViewModel
             get => _TextResult;
             set => Set(ref _TextResult, value);
         }
-        public ICommand DisplayMessageCommand { get; private set; }
+        public ICommand OpenTextCommand { get; private set; }
+
+        private void OnOpenTextCommadExecuter(object p)
+        {
+            TextBox textBox = new TextBox();
+            textBox.Text = _TextKey;
+            var openFileDialog = new OpenFileDialog()
+            {
+                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
+            };
+            var text = openFileDialog.ReadOnlyChecked.ToString();
+            if (openFileDialog.ShowDialog() == true)
+                _TextKey = text;
+        }
+        public bool CanOpenTextCommand(object p)
+        {
+            return true;
+        }
+        public ICommand EncryptMessageCommand { get; private set; }
         public void OnDisplayMessageCommand(object p)
         {
             var encryption = new EncryptionMain();
-            var res = encryption.Encrypt(_TextMasseg, _TextKey);
+            var res = encryption.Encrypt(_TextMessag, _TextKey);
             TextResult = res;
         }
 
@@ -65,8 +83,8 @@ namespace Enigma.MVVM.ViewModel
         public MainWindowViewModel()
         {
             SaveTextCommad = new LambdaCommand(OnSaveTextCommadExecuter, CanSaveTextCommadEcecute);
-            DisplayMessageCommand = new LambdaCommand(OnDisplayMessageCommand, CanDisplayMessageCommand);
-
+            EncryptMessageCommand = new LambdaCommand(OnDisplayMessageCommand, CanDisplayMessageCommand);
+            OpenTextCommand = new LambdaCommand(OnOpenTextCommadExecuter, CanOpenTextCommand);
         }
     }
 }

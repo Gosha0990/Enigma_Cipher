@@ -112,6 +112,14 @@
                             FontWeight="Medium"
                             Foreground="White"
                             Margin="-35,25,12,0"/>
+                        <Button Background="Transparent"
+                                BorderThickness="0"
+                                Margin="0,-10,20,16"
+                                Command="{Binding OpenTextCommand}"
+                                Width="25" Height="25">
+                            <font:ImageAwesome Icon="Solid_File" 
+                                               Foreground="#FF2D302D"/>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -224,7 +232,7 @@
                                 FontWeight="Bold" 
                                 Margin="0,-10,20,17"
                                 x:Name="ButtomStart" 
-                                Command="{Binding DisplayMessageCommand}">
+                                Command="{Binding EncryptMessageCommand}">
                             <font:ImageAwesome Icon="Solid_Play" Cursor=""
                                                Foreground="#FF2D302D"/>
                         </Button>
