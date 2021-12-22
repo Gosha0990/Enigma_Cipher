@@ -14,7 +14,7 @@ namespace Enigma.MVVM.ViewModel
         private string _TextKey = "New Key";
         private string _TextMessag ="World!";
         private string _TextResult;
-        public string TextMasseg
+        public string TextMessag
         {
             get => _TextMessag;
             set => Set(ref _TextMessag, value);
@@ -64,7 +64,7 @@ namespace Enigma.MVVM.ViewModel
                 var fileName = openFileDialog.FileName;
                 var fileText = File.ReadAllText(fileName);
                 var retunText = fileText;
-                TextMasseg = retunText;                
+                TextMessag = retunText;                
             }
         }
         private bool CanOpanTextMassegCommand(object p)
@@ -83,7 +83,21 @@ namespace Enigma.MVVM.ViewModel
         {
             return true;
         }
-        #region SaveText
+        public ICommand SaveTextMessageCommand { get; private set; }
+        private void OnSaveTextMessageCommand(object p)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog()
+            {
+                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
+            };
+            if (saveFileDialog.ShowDialog() == true)
+                File.WriteAllText(saveFileDialog.FileName, TextMessag);
+        }
+        private bool CanSaveTextMessageCommand(object p)
+        {
+            return true;
+        }
+        #region SaveTextKey
         public ICommand SaveTextCommad { get; }
 
         private void OnSaveTextCommadExecuter(object p)
@@ -103,12 +117,30 @@ namespace Enigma.MVVM.ViewModel
             return true;
         }
         #endregion
+        public ICommand SaveTextEncyptionCommand { get; private set; }
+
+        public void OnSaveTextEncyptionCommand(object p)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog()
+            {
+                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
+            };
+            if (saveFileDialog.ShowDialog() == true)
+                File.WriteAllText(saveFileDialog.FileName, TextResult);
+        }
+
+        public bool CanSaveTextEncyptionCommand(object p)
+        {
+            return true;
+        }
         public MainWindowViewModel()
         {
             SaveTextCommad = new LambdaCommand(OnSaveTextCommadExecuter, CanSaveTextCommadEcecute);
             EncryptMessageCommand = new LambdaCommand(OnDisplayMessageCommand, CanDisplayMessageCommand);
             OpanTextKeyCommand = new LambdaCommand(OnOpanTextKeyCommadExecuter, CanOpanTextKeyCommand);
             OpanTextMassegCommand = new LambdaCommand(OnOpanTextMassegCommand, CanOpanTextMassegCommand);
+            SaveTextEncyptionCommand = new LambdaCommand(OnSaveTextEncyptionCommand, CanSaveTextEncyptionCommand);
+            SaveTextMessageCommand = new LambdaCommand(OnSaveTextMessageCommand, CanSaveTextMessageCommand);
         }
     }
 }

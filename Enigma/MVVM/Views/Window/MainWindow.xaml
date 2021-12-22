@@ -114,12 +114,18 @@
                             Margin="-35,25,12,0"/>
                         <Button Background="Transparent"
                                 BorderThickness="0"
-                                Margin="0,-10,20,16"
-                                Command="{Binding OpenTextCommand}"
+                                Margin="0,-10,5,16"
+                                Command="{Binding OpanTextKeyCommand}"
                                 Width="25" Height="25">
                             <font:ImageAwesome Icon="Solid_File" 
                                                Foreground="#FF2D302D"/>
                         </Button>
+                        <Label                             
+                            FontSize="15"
+                            Content="Open"
+                            FontWeight="Medium"
+                            Foreground="White"
+                            Margin="-39,25,12,0"/>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -166,7 +172,7 @@
                             Background="Transparent"                                
                             BorderThickness="0"
                             Margin="0,-10,0,16"
-                            Command="{Binding SaveTextCommad}">
+                            Command="{Binding SaveTextMessageCommand}">
                             <font:ImageAwesome Icon="Solid_Save" Cursor=""
                                                Foreground="#FF2D302D"/>
                         </Button>
@@ -175,6 +181,20 @@
                                FontWeight="Medium"
                                Foreground="White"
                                Margin="-35,25,12,0"/>
+                        <Button Background="Transparent"
+                                BorderThickness="0"
+                                Margin="0,-10,5,16"
+                                Command="{Binding OpanTextMassegCommand}"
+                                Width="25" Height="25">
+                            <font:ImageAwesome Icon="Solid_File" 
+                                               Foreground="#FF2D302D"/>
+                        </Button>
+                        <Label                             
+                            FontSize="15"
+                            Content="Open"
+                            FontWeight="Medium"
+                            Foreground="White"
+                            Margin="-39,25,12,0"/>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -192,7 +212,7 @@
                     TextWrapping="Wrap"
                     AcceptsReturn="True"
                     VerticalScrollBarVisibility="Visible"
-                    Text="{Binding TextMasseg}"
+                    Text="{Binding TextMessag}"
                         >
                 </TextBox>
             </Border>
@@ -239,8 +259,8 @@
                         <Button     Width="25" Height="25"
                                 Background="Transparent"
                                 BorderThickness="0"
-                                Margin="0,-10,20,17"
-                                Command="{Binding SaveTextCommad}">
+                                Margin="0,-10,25,17"
+                                Command="{Binding SaveTextEncyptionCommand}">
                             <font:ImageAwesome Icon="Solid_Save"
                                                Foreground="#FF2D302D"/>
                         </Button>
