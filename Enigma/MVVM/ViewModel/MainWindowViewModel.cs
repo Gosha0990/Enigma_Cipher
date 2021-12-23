@@ -12,7 +12,7 @@ namespace Enigma.MVVM.ViewModel
     class MainWindowViewModel : MainViewModel
     {
         private string _TextKey = "New Key";
-        private string _TextMessag ="World!";
+        private string _TextMessag ="Hello World!";
         private string _TextResult;
         public string TextMessag
         {

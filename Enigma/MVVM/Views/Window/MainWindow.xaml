@@ -95,7 +95,7 @@
                        Foreground="White"
                        FontWeight="Medium"
                        FontSize="15"
-                       Margin="25,30,240,0"/>
+                       Margin="30,30,240,0"/>
                     <StackPanel HorizontalAlignment="Right" 
                             Orientation="Horizontal">
                         <Button Background="Transparent"
@@ -111,7 +111,7 @@
                             Content="Save"
                             FontWeight="Medium"
                             Foreground="White"
-                            Margin="-35,25,12,0"/>
+                            Margin="-35,25,15,0"/>
                         <Button Background="Transparent"
                                 BorderThickness="0"
                                 Margin="0,-10,5,16"
@@ -171,7 +171,7 @@
                         <Button Width="25" Height="25"
                             Background="Transparent"                                
                             BorderThickness="0"
-                            Margin="0,-10,0,16"
+                            Margin="0,-10,2,16"
                             Command="{Binding SaveTextMessageCommand}">
                             <font:ImageAwesome Icon="Solid_Save" Cursor=""
                                                Foreground="#FF2D302D"/>
@@ -180,7 +180,7 @@
                                Content="Save"
                                FontWeight="Medium"
                                Foreground="White"
-                               Margin="-35,25,12,0"/>
+                               Margin="-35,25,15,0"/>
                         <Button Background="Transparent"
                                 BorderThickness="0"
                                 Margin="0,-10,5,16"
