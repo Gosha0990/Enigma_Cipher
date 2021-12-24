@@ -39,8 +39,9 @@ namespace Enigma.MVVM.ViewModel
             if (saveFileDialog.ShowDialog() == true)
                 File.WriteAllText(saveFileDialog.FileName, text);
         }
-        private void OpenText(string text)
+        private string OpenText()
         {
+            string text = null;
             var openFileDialog = new OpenFileDialog()
             {
                 Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
@@ -49,16 +50,17 @@ namespace Enigma.MVVM.ViewModel
             {
                 var fileName = openFileDialog.FileName;
                 var fileText = File.ReadAllText(fileName);
-                var retunText = fileText;
-                text = retunText;               
+                return text = fileText;
             }
-        }
-
+            else
+                return text;
+        }        
         #region OpenTextKey
         public ICommand OpanTextKeyCommand { get; private set; }
         private void OnOpanTextKeyCommadExecuter(object p)
         {
-            OpenText(TextKey);
+            string res = OpenText();
+            TextKey = res;
         }
         public bool CanOpanTextKeyCommand(object p)
         {
@@ -71,7 +73,8 @@ namespace Enigma.MVVM.ViewModel
 
         private void OnOpanTextMassegCommand(object p)
         {
-            OpenText(TextMessag);
+            string res = OpenText();
+            TextMessag = res;
         }
         private bool CanOpanTextMassegCommand(object p)
         {
@@ -84,7 +87,7 @@ namespace Enigma.MVVM.ViewModel
         public void OnDisplayMessageCommand(object p)
         {
             var encryption = new EncryptionMain();
-            var res = encryption.Encrypt(_TextMessag, _TextKey);
+            var res = encryption.Encrypt(TextMessag, TextKey);
             TextResult = res;
         }
 
