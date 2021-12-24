@@ -30,30 +30,16 @@ namespace Enigma.MVVM.ViewModel
             get => _TextResult;
             set => Set(ref _TextResult, value);
         }
-        public ICommand OpanTextKeyCommand { get; private set; }
-
-        private void OnOpanTextKeyCommadExecuter(object p)
+        private void SaveText (string text)
         {
-            var openFileDialog = new OpenFileDialog()
+            SaveFileDialog saveFileDialog = new SaveFileDialog()
             {
                 Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
-            };            
-            if (openFileDialog.ShowDialog() == true)
-            {
-                var fileName = openFileDialog.FileName;
-                var fileText = File.ReadAllText(fileName);
-                var retunText = fileText;
-                TextKey = retunText;
-                Debug.WriteLine(TextKey);
-            }
+            };
+            if (saveFileDialog.ShowDialog() == true)
+                File.WriteAllText(saveFileDialog.FileName, text);
         }
-        public bool CanOpanTextKeyCommand(object p)
-        {
-            return true;
-        }
-        public ICommand OpanTextMassegCommand { get; private set; }
-
-        private void OnOpanTextMassegCommand(object p)
+        private void OpenText(string text)
         {
             var openFileDialog = new OpenFileDialog()
             {
@@ -64,13 +50,36 @@ namespace Enigma.MVVM.ViewModel
                 var fileName = openFileDialog.FileName;
                 var fileText = File.ReadAllText(fileName);
                 var retunText = fileText;
-                TextMessag = retunText;                
+                text = retunText;               
             }
+        }
+
+        #region OpenTextKey
+        public ICommand OpanTextKeyCommand { get; private set; }
+        private void OnOpanTextKeyCommadExecuter(object p)
+        {
+            OpenText(TextKey);
+        }
+        public bool CanOpanTextKeyCommand(object p)
+        {
+            return true;
+        }
+        #endregion
+
+        #region OpanTextMasseg
+        public ICommand OpanTextMassegCommand { get; private set; }
+
+        private void OnOpanTextMassegCommand(object p)
+        {
+            OpenText(TextMessag);
         }
         private bool CanOpanTextMassegCommand(object p)
         {
             return true;
         }
+        #endregion
+
+        #region Encrypt
         public ICommand EncryptMessageCommand { get; private set; }
         public void OnDisplayMessageCommand(object p)
         {
@@ -83,33 +92,26 @@ namespace Enigma.MVVM.ViewModel
         {
             return true;
         }
+        #endregion
+
+        #region SaveTextMessag
         public ICommand SaveTextMessageCommand { get; private set; }
         private void OnSaveTextMessageCommand(object p)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog()
-            {
-                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
-            };
-            if (saveFileDialog.ShowDialog() == true)
-                File.WriteAllText(saveFileDialog.FileName, TextMessag);
+        {            
+            SaveText(TextMessag);
         }
         private bool CanSaveTextMessageCommand(object p)
         {
             return true;
         }
+        #endregion
+
         #region SaveTextKey
         public ICommand SaveTextCommad { get; }
 
         private void OnSaveTextCommadExecuter(object p)
         {
-            TextBox textBox = new TextBox();
-            textBox.Text = _TextKey;
-            SaveFileDialog saveFileDialog = new SaveFileDialog()
-            {
-                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
-            };
-            if (saveFileDialog.ShowDialog() == true)
-                File.WriteAllText(saveFileDialog.FileName, textBox.Text);
+            SaveText(TextKey);
         }
 
         private bool CanSaveTextCommadEcecute(object p)
@@ -117,22 +119,20 @@ namespace Enigma.MVVM.ViewModel
             return true;
         }
         #endregion
+
+        #region SaveTextEncryption
         public ICommand SaveTextEncyptionCommand { get; private set; }
 
         public void OnSaveTextEncyptionCommand(object p)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog()
-            {
-                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
-            };
-            if (saveFileDialog.ShowDialog() == true)
-                File.WriteAllText(saveFileDialog.FileName, TextResult);
+            SaveText(TextResult);
         }
 
         public bool CanSaveTextEncyptionCommand(object p)
         {
             return true;
         }
+        #endregion
         public MainWindowViewModel()
         {
             SaveTextCommad = new LambdaCommand(OnSaveTextCommadExecuter, CanSaveTextCommadEcecute);
